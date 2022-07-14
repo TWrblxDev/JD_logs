@@ -1,3 +1,14 @@
+# Abandoned resource please use [JD_logsV3](https://github.com/prefech/JD_logsV3)
+# Abandoned resource please use [JD_logsV3](https://github.com/prefech/JD_logsV3)
+# Abandoned resource please use [JD_logsV3](https://github.com/prefech/JD_logsV3)
+# Abandoned resource please use [JD_logsV3](https://github.com/prefech/JD_logsV3)
+# Abandoned resource please use [JD_logsV3](https://github.com/prefech/JD_logsV3)
+# Abandoned resource please use [JD_logsV3](https://github.com/prefech/JD_logsV3)
+# Abandoned resource please use [JD_logsV3](https://github.com/prefech/JD_logsV3)
+# Abandoned resource please use [JD_logsV3](https://github.com/prefech/JD_logsV3)
+# Abandoned resource please use [JD_logsV3](https://github.com/prefech/JD_logsV3)
+# Abandoned resource please use [JD_logsV3](https://github.com/prefech/JD_logsV3)
+
 <h4 align="center">
 	<img src="https://img.shields.io/github/release/Prefech/JD_logs.png">
 	<img src="https://img.shields.io/github/last-commit/Prefech/JD_logs">
