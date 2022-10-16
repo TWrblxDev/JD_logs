@@ -109,70 +109,9 @@ exports('createLog', function(args)
 	debugLog('Code: EX1000 (Server New Export from: '..resource..')')
 end)
 
-RegisterNetEvent("ACCheatAlert")
-AddEventHandler("ACCheatAlert", function(args)
-	debugLog('Code: AC1000')
-	if IsPlayerAceAllowed(source, cfgFile['AntiCheatBypass']) then return end
-	if args.screenshot and GetResourceState('screenshot-basic') == "started" then
-		debugLog('Code: AC1001')
-		PerformHttpRequest('https://cdn.prefech.dev/api/ac-screen', function(code, res, headers)
-			args['url'] = res
-			TriggerClientEvent('ACScreenshot', args.target, args)
-		end, 'GET')
-	else
-		local ids = ExtractIdentifiers(source)
-		local args = { ['ids'] = ids, ['reason'] = args.reason, ['username'] = GetPlayerName(source), ['screenshot'] = args.responseUrl }
-		debugLog('Code: AC1002')
-		PerformHttpRequest('https://cdn.prefech.dev/api/cheatAlert', function(err, text, headers)
-		end, 'POST', json.encode(args), {
-			['Content-Type'] = 'application/json'
-		})
-		if args.kick then
-			debugLog('Code: AC1010')
-			DropPlayer(source, '\nYou have been kicked by the Prefech Auto kick system.')
-		end
-	end
-end)
-
 AddEventHandler("playerConnecting", function(name, setReason, deferrals)
 	local _source = source
-	local ids = ExtractIdentifiers(_source)
-	if cfgFile['PrefechGlobalBans'] then
-		deferrals.defer()
-		Wait(50)
-		deferrals.update("⌛ Checking Global ban status...")
-		bypass = false
-		for k,v in pairs(cfgFile['GlobalBanBypass']) do
-			if has_val(ids, v) then
-				bypass = true
-			end
-		end
-		if not bypass then
-			local args = { ['ids'] = ids }
-			PerformHttpRequest('https://cdn.prefech.dev/api/checkBan', function(err, text, headers)
-				if text == nil then
-					debugLog('Code: AC1000')
-					return deferrals.done('\nCould not check ban status.')
-				else
-					if text ~= 'Safe' then
-						debugLog('Code: AC1001')
-						one, two = text:match("([^,]+);([^,]+)")
-						ServerFunc.CreateLog({ description = lang['DefaultLogs'].GlobalBan:format(name, two, one), isBanned = true, channel = 'system'})
-						return deferrals.done("\nPrefech | Global Banned.\nReason: "..one.."\nUUID: "..two.."\nTo appeal this ban please join our discord: https://discord.gg/6rcWxBzKAG")
-					else
-						debugLog('Code: AC1002')
-						ServerFunc.CreateLog({EmbedMessage = lang['DefaultLogs'].Join:format(name), player_id = _source, channel = 'joins'})
-						deferrals.done()
-					end
-				end
-			end, 'POST', json.encode(args), {
-				['Content-Type'] = 'application/json'
-			})
-		end
-	else
-		debugLog('Code: GB1010')
-		ServerFunc.CreateLog({EmbedMessage = lang['DefaultLogs'].Join:format(name), player_id = _source, channel = 'joins'})
-	end
+	ServerFunc.CreateLog({EmbedMessage = lang['DefaultLogs'].Join:format(name), player_id = _source, channel = 'joins'})
 end)
 
 AddEventHandler("playerJoining", function(source, oldID)
@@ -428,41 +367,6 @@ end)
 if GetCurrentResourceName() ~= "JD_logs" then
     errorLog('This recource should be named "JD_logs" for the exports to work properly.')
 end
-
-CreateThread(function()
-	while true do
-		Wait(10 * 60 * 1000)
-		for k,v in pairs(GetPlayers()) do
-			local ids = ExtractIdentifiers(v)
-			local name = GetPlayerName(v)
-			if name == nil then
-				return
-			end
-			if cfgFile['PrefechGlobalBans'] then
-				bypass = false
-				for k,v in pairs(cfgFile['GlobalBanBypass']) do
-					if has_val(ids, v) then
-						bypass = true
-					end
-				end
-				if not bypass then
-					local args = { ['ids'] = ids }
-					PerformHttpRequest('https://cdn.prefech.dev/api/checkBan', function(err, text, headers)
-						if text ~= 'Safe' then
-							one, two = text:match("([^,]+);([^,]+)")
-							ServerFunc.CreateLog({ description = lang['DefaultLogs'].GlobalBan:format(name, two, one), isBanned = true, channel = 'system'})
-							DropPlayer(v, "\nPrefech | Global Banned.\nReason: "..one.."\nUUID: "..two.."\nTo appeal this ban please join our discord: https://discord.gg/6rcWxBzKAG")
-							--[[ The link to this discord is where banned player can appeal their global ban. Feel free to join it.]]
-						end
-					end, 'POST', json.encode(args), {
-						['Content-Type'] = 'application/json'
-					})
-				end
-			end
-			Wait(500)
-		end
-	end
-end)
 
 -- version check
 CreateThread( function()
