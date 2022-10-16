@@ -1,15 +1,4 @@
-# Abandoned resource please use [JD_logsV3](https://github.com/prefech/JD_logsV3)
-# Abandoned resource please use [JD_logsV3](https://github.com/prefech/JD_logsV3)
-# Abandoned resource please use [JD_logsV3](https://github.com/prefech/JD_logsV3)
-# Abandoned resource please use [JD_logsV3](https://github.com/prefech/JD_logsV3)
-# Abandoned resource please use [JD_logsV3](https://github.com/prefech/JD_logsV3)
-# Abandoned resource please use [JD_logsV3](https://github.com/prefech/JD_logsV3)
-# Abandoned resource please use [JD_logsV3](https://github.com/prefech/JD_logsV3)
-# Abandoned resource please use [JD_logsV3](https://github.com/prefech/JD_logsV3)
-# Abandoned resource please use [JD_logsV3](https://github.com/prefech/JD_logsV3)
-# Abandoned resource please use [JD_logsV3](https://github.com/prefech/JD_logsV3)
-
-<h4 align="center">
+ <h4 align="center">
 	<img src="https://img.shields.io/github/release/Prefech/JD_logs.png">
 	<img src="https://img.shields.io/github/last-commit/Prefech/JD_logs">
 	<img src="https://img.shields.io/github/license/Prefech/JD_logs.png">
@@ -30,7 +19,7 @@
     <br />
     <a href="https://github.com/prefech/JD_logs/wiki"><strong>Explore wiki »</strong></a>
     <br />
-    <br />    
+    <br />
     <a href="https://github.com/Prefech/JD_logs/issues">Report Bug</a>
     ·
     <a href="https://github.com/Prefech/JD_logs/issues">Request Feature</a>
@@ -45,18 +34,18 @@
 - FXServer
 
 ### ✅ Main Features
-- Basic logs:  
-  - Chat Logs (Messages typed in chat)  
-  - Join Logs (When i player is connecting to the sever)  
-  - Leave Logs (When a player disconnects from the server)  
-  - Death Logs (When a player dies/get killed)  
-  - Shooting Logs (When a player fires a weapon)  
-  - Resource Logs (When a resouce get started/stopped)  
-- Screenshot Logs  
-- Namechange Logs  
-- Logs with or without embeds.  
-- Optional custom logs  
-  - Easy to add with the export.  
+- Basic logs:
+  - Chat Logs (Messages typed in chat)
+  - Join Logs (When i player is connecting to the sever)
+  - Leave Logs (When a player disconnects from the server)
+  - Death Logs (When a player dies/get killed)
+  - Shooting Logs (When a player fires a weapon)
+  - Resource Logs (When a resouce get started/stopped)
+- Screenshot Logs
+- Namechange Logs
+- Logs with or without embeds.
+- Optional custom logs
+  - Easy to add with the export.
 
 ### 🔧 Download & Installation
 
